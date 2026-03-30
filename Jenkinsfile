@@ -9,7 +9,7 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/devops-cicd-project.git'
+                git 'https://github.com/RITika2522/DevOps-CICD.git'
             }
         }
 
@@ -42,6 +42,14 @@ pipeline {
                 sh '''
                 echo "Manual step: SSH into EC2 and run container"
                 '''
+            }
+        }
+
+        stage('Terraform Destroy') {
+            steps {
+                dir('terraform') {
+                    sh 'terraform destroy -auto-approve'
+                }
             }
         }
     }
