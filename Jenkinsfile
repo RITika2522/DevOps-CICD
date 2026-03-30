@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git 'https://github.com/RITika2522/DevOps-CICD.git'
-            }
-        }
-
         stage('Terraform Init') {
             steps {
                 dir('terraform') {
